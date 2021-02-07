@@ -14,6 +14,7 @@ A default texture will be applied if the widget is a StatusBar and doesn't have 
 ## Options
 
 .smoothGradient                   - 9 color values to be used with the .colorSmooth option (table)
+.alpha............................- Transparency (number)[0-1]
 
 The following options are listed by priority. The first check that returns true decides the color of the bar.
 
@@ -76,7 +77,7 @@ local function Update(self, event, unit)
 	end
 
 	if(b) then
-		element:SetStatusBarColor(r, g, b)
+		element:SetStatusBarColor(r, g, b, element.alpha or 1)
 		element:SetValue(1)
 	else
 		element:SetValue(0)
